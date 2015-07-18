@@ -8,12 +8,12 @@
  * @param array $url_raw either the URL of a single file or an array of files, optionally with custom keys to match incoming with ougoing
  * @param int $javascript_loop How often to loop to handle Javascript 
  * @param int $timeout How long to waitfor the timeout (default 50)
- * @param boolean $header Include or exclude the header in the file (for debugging set to true, header will be on top of the content and will corrupt binariy files)
  * @param string $ssl_cert absolute path to the SSL certificate to successfully download files over SSL. See http://unitstep.net/blog/2009/05/05/using-curl-in-php-to-access-https-ssltls-protected-sites/ for more info
  * @param string $custom_agent default agent is Firefox v. 36
+ * @param boolean $header Include or exclude the header in the file (for debugging set to true, header will be on top of the content and will corrupt binariy files)
  * @return array
  */
-function unc_serial_curl($url_raw, $javascript_loop = 0, $timeout = 50, $header = false, $ssl_cert = '', $custom_agent = false) {
+function unc_serial_curl($url_raw, $javascript_loop = 0, $timeout = 50, $ssl_cert = '', $custom_agent = false, $header = false) {
     if (!is_array($url_raw)) {
         $urls = array($url_raw);
     } else {
@@ -68,7 +68,7 @@ function unc_serial_curl($url_raw, $javascript_loop = 0, $timeout = 50, $header 
 
     $output = array();
     foreach ($channels as $key => $channel) {
-        $output[$key] = unc_serial_curl_response_process($channel, $user_agent, $javascript_loop);
+        $output[$key] = unc_serial_curl_response_process($channel, $user_agent, $javascript_loop, $timeout, $ssl_cert, $custom_agent, $header);
         curl_multi_remove_handle($mh, $channel);
         curl_close($channel);
     }

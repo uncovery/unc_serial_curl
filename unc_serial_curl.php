@@ -8,7 +8,7 @@
  * @param array $url_raw either the URL of a single file or an array of files, optionally with custom keys to match incoming with ougoing
  * @param int $javascript_loop How often to loop to handle Javascript 
  * @param int $timeout How long to waitfor the timeout (default 50)
- * @param boolean $header Include or exclude the header in the file (for debugging set to true)
+ * @param boolean $header Include or exclude the header in the file (for debugging set to true, header will be on top of the content and will corrupt binariy files)
  * @param string $ssl_cert absolute path to the SSL certificate to successfully download files over SSL. See http://unitstep.net/blog/2009/05/05/using-curl-in-php-to-access-https-ssltls-protected-sites/ for more info
  * @param string $custom_agent default agent is Firefox v. 36
  * @return array

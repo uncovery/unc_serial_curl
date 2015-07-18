@@ -7,7 +7,7 @@ How to:
     require_once(__DIR__ . "/unc_serial_curl.php");
     $ssl_cert = __DIR__ . "/ca-bundle_2015_07_18.crt";
     $files = array('file1' => "https://test.com/test.png");
-    $result_arr = unc_serial_curl($files, 0, 50, false, $ssl_cert);
+    $result_arr = unc_serial_curl($files, 0, 50, $ssl_cert);
 
 The result will look like this
 

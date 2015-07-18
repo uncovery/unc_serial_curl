@@ -21,7 +21,7 @@ function unc_serial_curl_test($files, $target_directory) {
 
     // these are Certificates for testing. Get your own, updated ones here:
     // http://curl.haxx.se/docs/caextract.html
-    $ssl_cert = __DIR__ . "/google.crt";
+    $ssl_cert = __DIR__ . "/ca-bundle_2015_07_18.crt";
 
     $result_arr = unc_serial_curl($files, 0, 50, false, $ssl_cert);
 

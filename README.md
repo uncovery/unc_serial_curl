@@ -4,7 +4,7 @@ is a replacement for file_get_contents, supporting several files and SSL
 # How to:
 
 require_once(__DIR__ . "/unc_serial_curl.php");
-$ssl_cert = __DIR__ . "/google.crt";
+$ssl_cert = __DIR__ . "/ca-bundle_2015_07_18.crt";
 $files = array('file1' => "https://test.com/test.png");
 $result_arr = unc_serial_curl($files, 0, 50, false, $ssl_cert);
 

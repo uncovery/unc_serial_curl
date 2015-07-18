@@ -23,7 +23,7 @@ function unc_serial_curl_test($files, $target_directory) {
     // http://curl.haxx.se/docs/caextract.html
     $ssl_cert = __DIR__ . "/ca-bundle_2015_07_18.crt";
 
-    $result_arr = unc_serial_curl($files, 0, 50, false, $ssl_cert);
+    $result_arr = unc_serial_curl($files, 0, 50, $ssl_cert);
 
     foreach ($result_arr as $file_id => $R) {
         $url = $R['response']['url'];

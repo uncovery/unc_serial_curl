@@ -25,6 +25,12 @@ function unc_serial_curl($url_raw, $javascript_loop = 0, $timeout = 50, $header 
     } else {
         $user_agent = $custom_agent;
     }
+    
+    if ($ssl_cert) {
+        if (!file_exists($ssl_cert)) {
+            die("[ERROR] SSL Certificate file could not be read");
+        }
+    }
 
     $channels = array();
     $mh = curl_multi_init();
@@ -50,7 +56,7 @@ function unc_serial_curl($url_raw, $javascript_loop = 0, $timeout = 50, $header 
         ));
         $check = curl_multi_add_handle($mh, $channels[$key]);
         if ($check !== 0) {
-            die("Failed to add curl options for URL $url_fixed");
+            die("[ERROR] Failed to add curl options for URL $url_fixed");
         }
     }
 

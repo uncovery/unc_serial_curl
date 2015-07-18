@@ -13,7 +13,9 @@ The result will look like this
 
     array(
         'file1' = array(
-            'content' => '?' // this contains the file data. You get it with file_put_contents().
+            // this contains the file data. use file_put_contents() to save to disk
+            'content' => '?' 
+            // response codes
             'response' => array(
                 'url' => 'https://test.com/test.png',
                 'content_type' => "image/png"

@@ -33,7 +33,7 @@ The result will look like this
 Hints:
 ------
 
-* If there is only one file, there is not need to use an array. the result will still be an array and the file contents will have the index 0
+* If there is only one file, there is not need to use an array. the result will still be an array and the file contents will have the index 0 (instead of 'file1' as in the example above)
 * If the array is not associative, the results will be numbered 0,1,2 etc.
 * If the files do not use HTTPS, there is no need to use a ssl_cert path.
 

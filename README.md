@@ -19,7 +19,7 @@ The result will look like this
     array(
         'file1' = array(
             // this contains the file data. use file_put_contents() to save to disk
-            'content' => '?' 
+            'content' => 'whatever your file contents are' 
             // response codes
             'response' => array(
                 'url' => 'https://test.com/test.png',

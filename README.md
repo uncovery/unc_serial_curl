@@ -3,7 +3,6 @@ is a replacement for file_get_contents, supporting several files and SSL
 
 How to:
 -------
-
     require_once(__DIR__ . "/unc_serial_curl.php");
     $ssl_cert = __DIR__ . "/ca-bundle_2015_07_18.crt";
     $files = array('file1' => "https://test.com/test.png");
@@ -24,5 +23,12 @@ The result will look like this
             )
         )
     )
+
+Hints:
+------
+
+* If there is only one file, there is not need to use an array. the result will still be an array and the file contents will have the index 0
+* If the array is not associative, the results will be numbered 0,1,2 etc.
+* If the files do not use HTTPS, there is no need to use a ssl_cert path.
 
 see test.php for an example

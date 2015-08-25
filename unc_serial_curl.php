@@ -2,11 +2,11 @@
 /**
  * This is a function that can replace file_get_contents for single file and also
  * download several files in an array. The files are passed back in the result along with the answer
- * 
+ *
  * Supports SSL transfers
- * 
+ *
  * @param array $url_raw either the URL of a single file or an array of files, optionally with custom keys to match incoming with ougoing
- * @param int $javascript_loop How often to loop to handle Javascript 
+ * @param int $javascript_loop How often to loop to handle Javascript
  * @param int $timeout How long to waitfor the timeout (default 50)
  * @param string $ssl_cert absolute path to the SSL certificate to successfully download files over SSL. See http://unitstep.net/blog/2009/05/05/using-curl-in-php-to-access-https-ssltls-protected-sites/ for more info
  * @param string $custom_agent default agent is Firefox v. 36
@@ -19,13 +19,13 @@ function unc_serial_curl($url_raw, $javascript_loop = 0, $timeout = 50, $ssl_cer
     } else {
         $urls = $url_raw;
     }
-    
+
     if (!$custom_agent) {
         $user_agent = "Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0";
     } else {
         $user_agent = $custom_agent;
     }
-    
+
     if ($ssl_cert) {
         if (!file_exists($ssl_cert)) {
             die("[ERROR] SSL Certificate file could not be read");

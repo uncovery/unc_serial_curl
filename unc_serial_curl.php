@@ -31,12 +31,15 @@ function unc_serial_curl($url_raw, $javascript_loop = 0, $timeout = 50, $ssl_cer
             die("[ERROR] SSL Certificate file could not be read");
         }
     }
+    
+    $cookies = array();
 
     $channels = array();
     $mh = curl_multi_init();
     foreach ($urls as $key => $url) {
         $url_fixed = str_replace( "&amp;", "&", urldecode(trim($url)));
-        $cookie = tempnam("/tmp", "CURLCOOKIE");
+        $cookie = tempnam("/tmp", "CURLCOOKIE_");
+        $cookies[] = $cookie;
         $channels[$key] = curl_init();
         curl_setopt_array($channels[$key], array(
             CURLOPT_USERAGENT => $user_agent,
@@ -73,6 +76,13 @@ function unc_serial_curl($url_raw, $javascript_loop = 0, $timeout = 50, $ssl_cer
         curl_close($channel);
     }
     curl_multi_close($mh);
+    
+    // delete the cookies
+    foreach ($cookies as $cookie) {
+        if (file_exists($cookie)) {
+            unlink($cookie);
+        }
+    }
     return $output;
 }
 
